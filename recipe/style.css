@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* MAIN CONTAINER */
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.container__image{
+    width: 100%;
+    margin: 2rem 0;
+}
+.food-image{
+    border-radius: 1rem;
+    display: block;
+    margin: auto;
+}
+
+/* INGREDENTS CONTAINER */
+.container__ingredients-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ingredients-heading{
+    font-size: 1.6rem;
+}
+.container__ingredients-items{
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.ingredient-item{
+    margin: .5rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    padding: .5rem;
+}
+.ingredient-name{
+    font-size: .9rem;
+}
+.ingredient-quantity{
+    font-size: .75rem;
+}
+
+/* SUMMARY CONTAINER */
+.container__summary{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+.summary-heading{
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+.summary-item{
+    list-style: none;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+}
+.summary-logo{
+    margin: .5rem;
+}
+
+/* DIRECTIONS CONTAINER */
+.container__directions{
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background-color:rgb(1, 82, 82);
+    border-radius: 1rem;
+    color: white;
+}
+.directions-heading{
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    overflow: scroll;
+}
+.directions-item{
+    padding: 0 .3rem;
+}
