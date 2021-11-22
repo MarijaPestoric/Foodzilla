@@ -19,6 +19,12 @@ body{
         "ingredients"
         "summary"
         "directions";
+    max-width: 100%;
+}
+.food-title{
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
 }
 .container__image{
     width: 100%;
@@ -116,12 +122,11 @@ body{
 }
 .footer__menu-item{
     list-style: none;
-    padding: 2rem;
+    padding: .3rem;
 }
 .footer__menu-link{
     text-decoration: none;
     color: #003049;
-    padding-bottom: .3rem;
 }
 .footer__menu-link:hover{
     color: #002f4971;
@@ -131,6 +136,9 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.selected-link{
+    border-bottom: 3px solid #f77f00;
 }
 
 /* RESPONSIVE */
@@ -164,6 +172,9 @@ body{
     }
     .footer__menu{
         flex-direction: row;
+    }
+    .footer__menu-item{
+        padding: 1rem;
     }
 }
 /* LAPTOPS  769px - 1024px*/
@@ -204,6 +215,6 @@ body{
         margin-left: 5rem;
     }
     .container__directions{
-        margin: 0 2rem 0 0;
+        margin: 0 5rem 0 0;
     }
 }
