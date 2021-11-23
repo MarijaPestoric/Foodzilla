@@ -9,8 +9,9 @@ let ingredientItems = document.querySelector('.container__ingredients-items');
 let ingredientName = document.querySelector('.ingredient-name');
 let ingredientQuantity = document.querySelector('.ingredient-quantity');
 
+let key = config.SECRET_API_KEY;
 async function getInfo() {
-    const url = 'https://api.spoonacular.com/recipes/716429/information?apiKey=1d5af0a8f60f4f16ab2fc01744b0155c&includeNutrition=false';
+    const url = `https://api.spoonacular.com/recipes/716429/information?apiKey=${key}&includeNutrition=false`;
    let response = await fetch(url);
     let data = await response.json();
     let {title, image, servings, readyInMinutes} = data;
@@ -21,7 +22,7 @@ async function getInfo() {
 }
 getInfo();
 async function getDirections(){
-    let url = 'https://api.spoonacular.com/recipes/324694/analyzedInstructions?apiKey=1d5af0a8f60f4f16ab2fc01744b0155c';
+    let url = `https://api.spoonacular.com/recipes/324694/analyzedInstructions?apiKey=${key}`;
     let response = await fetch(url);
     let data = await response.json();
     for(let i=0; i<data[0].steps.length; i++){
@@ -32,7 +33,7 @@ async function getDirections(){
 getDirections();
 
 async function getIngredients(){
-    let url = 'https://api.spoonacular.com/recipes/716429/information?apiKey=1d5af0a8f60f4f16ab2fc01744b0155c&includeNutrition=false';
+    let url = `https://api.spoonacular.com/recipes/716429/information?apiKey=${key}&includeNutrition=false`;
     let response = await fetch(url);
     let data = await response.json();
     let ingredients = data.extendedIngredients;
@@ -46,7 +47,7 @@ async function getIngredients(){
 getIngredients();
 
 async function getNutrition(){
-    let url = 'https://api.spoonacular.com/recipes/1003464/nutritionWidget.json?apiKey=1d5af0a8f60f4f16ab2fc01744b0155c';
+    let url = `https://api.spoonacular.com/recipes/1003464/nutritionWidget.json?apiKey=${key}`;
     let response = await fetch(url);
     let data = await response.json();
     let {calories} = data;
