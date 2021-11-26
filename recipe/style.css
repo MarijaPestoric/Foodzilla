@@ -8,7 +8,7 @@ body{
     font-size: 14px;
     font-family: 'Poppins', sans-serif;
     color: #003049;
-    background-color: #f3eff5;
+    background-color: #f0f0f0;
 }
 
 /* MAIN CONTAINER */
@@ -24,6 +24,7 @@ body{
 .food-title{
     font-size: 2rem;
     padding: 1rem;
+    margin-top: 1rem;
     text-align: center;
 }
 .container__image{
@@ -32,9 +33,11 @@ body{
     grid-area: image;
 }
 .food-image{
-    border-radius: 2rem;
+    border-radius: 15px 50px 30px;
     display: block;
     margin: auto;
+    box-shadow: #002f496c 2px 2px 4px;
+    width: 25rem;
 }
 
 /* INGREDENTS CONTAINER */
@@ -55,18 +58,22 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    overflow: auto;
+    max-height: 16rem;
 }
 .ingredient-item{
     margin: .5rem;
     border: 1px solid #f77f00;
-    border-radius: 1rem;
-    padding: .5rem;
+    border-radius: 10px 23px 20px;
+    padding: .75rem;
+    box-shadow: #002f496c 2px 2px 4px;
 }
 .ingredient-name{
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 .ingredient-quantity{
-    font-size: .9rem;
+    font-size: .8rem;
+    color: #f77f00;
 }
 
 /* SUMMARY CONTAINER */
@@ -75,10 +82,11 @@ body{
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    width: 18rem;
+    width: 16rem;
+    max-height: 16rem;
     margin: 0 auto;
     border: 2px solid #f77f00;
-    border-radius: 2rem;
+    border-radius: 15px 50px 30px;
     padding: 2rem;
     grid-area: summary;
 }
@@ -101,9 +109,11 @@ body{
     margin-top: 3rem;
     padding: 1.5rem;
     background-color:#003049;
-    border-radius: 2rem;
+    border-radius: 15px 50px 30px;
     color: white;
     overflow: auto;
+    box-shadow: #002f496c 2px 2px 4px;
+    max-height: 18rem;
     grid-area: directions;
 }
 .directions-heading{
@@ -139,6 +149,9 @@ body{
 }
 .selected-link{
     border-bottom: 3px solid #f77f00;
+    color: #003049;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 /* RESPONSIVE */
@@ -150,9 +163,9 @@ body{
     }
     .container{
         grid-template-areas: 
-        "image image"
-        "summary ingredients"
-        "directions directions";
+        "image image image"
+        "summary ingredients ingredients"
+        "directions directions directions";
     }
     .food-image{
         width: 30rem;
@@ -162,9 +175,15 @@ body{
     }
     .container__ingredients-items{
         justify-content: flex-start;
+        max-height: 13rem;
+    }
+    .container__summary{
+        width: 16rem;
+        height: 16rem;
+        align-self: center;
     }
     .ingredients-logo{
-        width: 5rem;
+        width: 3rem;
     }
     .container__directions{
         padding: 1rem 2.5rem;
@@ -184,37 +203,40 @@ body{
     }
     .container{
         grid-template-areas: 
-        "image ingredients"
-        "summary directions"
+        "image image ingredients ingredients ingredients"
+        "summary directions directions directions directions";
+        justify-items: start;
+        grid-gap: 2rem;
     }
-    .container__image{
-        margin: 2.5rem;
-    }
+
     .container__ingredients{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        margin-top: 2.5rem;
-        margin-left: 2rem;
+        margin: 3rem 4rem 0 0;
     }
     .ingredients-logo{
         width: 4rem;
         border-radius: 5rem;
         margin-right: 1rem;
     }
+    .container__ingredients-items{
+        max-height: 15.5rem;
+    }
     .ingredients-heading{
         font-size: 2rem;
     }
     .food-image{
-        width: 30rem;
-        height: 20rem;
+        width: 32rem;
     }
     .container__summary{
         width: 20rem;
+        max-height: 22rem;
+        height: 18rem;
         margin-left: 5rem;
     }
     .container__directions{
-        margin: 0 5rem 0 0;
+        margin: 0 4rem 0 0;
     }
 }
