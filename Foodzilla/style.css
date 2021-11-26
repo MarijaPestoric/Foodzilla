@@ -241,4 +241,26 @@ header .navigation li a{
         right: 40px;
 
     }
+    .swipe-text{
+        top: 1rem;
+        margin-top: 1rem;
+    }
+    .arrow{
+        height: 4rem;
+    }
+}
+
+.swipe-text{
+    position: absolute;
+    font-size: 26px;
+    color: var(--light);
+    transform: rotate(-20deg);
+}
+
+.arrow{
+    width: 5rem;
+    top: .8rem;
+    margin: .5rem;
+    position: absolute;
+    transform: rotate(190deg) scaleX(-1);
 }
