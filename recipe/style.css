@@ -127,34 +127,6 @@ body{
     padding: 0 .3rem;
 }
 
-/* FOOTER */
-.footer{
-    margin-top: 2rem;
-}
-.footer__menu-item{
-    list-style: none;
-    padding: .3rem;
-}
-.footer__menu-link{
-    text-decoration: none;
-    color: #003049;
-}
-.footer__menu-link:hover{
-    color: #002f4971;
-}
-.footer__menu{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.selected-link{
-    border-bottom: 3px solid #f77f00;
-    color: #003049;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
 /* RESPONSIVE */
 
 /* TABLETS 481px - 768px*/
