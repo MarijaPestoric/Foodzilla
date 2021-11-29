@@ -17,8 +17,8 @@ async function getInfo() {
     let {title, image, servings, readyInMinutes} = data;
      recipeTitle.textContent = title;
      recipeImage.src = image; 
-     servingCount.textContent = servings + ' servings';
-     cookingTime.textContent = readyInMinutes + ' minutes';  
+     servingCount.textContent = servings + 'servings';
+     cookingTime.textContent = readyInMinutes + 'minutes';  
 }
 getInfo();
 async function getDirections(){
@@ -37,7 +37,6 @@ async function getIngredients(){
     let response = await fetch(url);
     let data = await response.json();
     let ingredients = data.extendedIngredients;
-    console.log(data);
     for(let i=0; i<ingredients.length; i++){
         ingredientItems.innerHTML += `<div class="ingredient-item">
         <p class="ingredient-name"> ${ingredients[i].nameClean}</p> 
@@ -51,7 +50,7 @@ async function getNutrition(){
     let response = await fetch(url);
     let data = await response.json();
     let {calories} = data;
-    servingKcal.textContent = calories;
+    servingKcal.textContent = calories + 'cal';
 }   
 
 getNutrition()
