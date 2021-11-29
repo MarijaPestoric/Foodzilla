@@ -39,7 +39,7 @@ body{
     display: block;
     margin: auto;
     box-shadow: #002f496c 2px 2px 4px;
-    width: 25rem;
+    max-width: 100%;
 }
 
 /* INGREDENTS CONTAINER */
