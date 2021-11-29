@@ -21,6 +21,7 @@ body{
         "summary"
         "directions";
     max-width: 100%;
+    padding-bottom: 2rem;
 }
 .food-title{
     font-size: 2rem;

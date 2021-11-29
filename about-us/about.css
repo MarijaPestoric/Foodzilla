@@ -59,7 +59,7 @@ header .navigation li a{
     position: relative;
     width: 30px;
     height: 30px;
-    background-image: url(../Foodzilla/images/icons/menu.png);
+    background-image: url(../images/icons/menu.png);
     background-size: 30px;
     background-repeat: no-repeat;
     background-position: center;
@@ -67,7 +67,7 @@ header .navigation li a{
     z-index: 10000;
 }
 .toggle.active{
-    background: url(../Foodzilla/images/icons/close.png);
+    background: url(../images/icons/close.png);
     background-size: 25px;
     background-repeat: no-repeat;
     background-position: center;
@@ -310,6 +310,7 @@ header .navigation li a{
     header .navigation li a{
         font-weight: 500;
         margin-left: 40px;
+        font-size: 1rem;
     }
     .toggle{
         display: none;
