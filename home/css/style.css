@@ -7,9 +7,9 @@
 
 }
 
-#main {
-    height: fit-content;
-}
+/* #main {
+    height: 100vh;
+} */
 
 #main #section-search {
     display: flex;
@@ -28,6 +28,7 @@
     background-color: orange;
     color: white;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 #main .container {
@@ -36,14 +37,9 @@
     grid-template-columns: 1fr 0.3fr;
 }
 
-#main .box img {
+#main .box .box-img img {
     width: 16vw;
     border-radius: 45px;
-}
-
-#main #section-newest-food h2 {
-    position: static;
-    margin: 1em 0px 1em 0px;
 }
 
 #main .cat-list {
@@ -58,14 +54,15 @@
 }
 
 #main .cat-food-list {
+    margin-top: 4em;
     display: grid;
-    grid-template-columns: 0.3fr 1fr;
+    gap: 2em;
 }
 
-#main .cat-food-list img {
+/* #main .cat-food-list .box-img {
     max-width: 10vw;
     border-radius: 20px;
-}
+} */
 
 #main .food-title {
     display: flex;
@@ -93,4 +90,9 @@
 }
 #main #section-most-popular-food{
     text-align: center;
+}
+
+.duration{
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Variables */
+
+:root {
+    --blue: #003049;
+    --red: #D62828;
+    --orange: #F77F00;
+    --yellow: #FCBF49;
+    --gray: #f0f0f0;
+    --light: #fff;
+    --dark: #000;
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    /* padding: 100px; */
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    background: var(--blue);
+    /* overflow-y: hidden; */
+}
+
+
+section .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     clip-path: circle(63.2% at right -19.1%); 
+    background: var(--red);
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0em 3em 0em 3em;
+}
+
+.content .textBox {
+    position: relative;
+    max-width: 600px;
+    margin-right: 20px;
+}
+
+.content .textBox h2 {
+    color: #fff;
+    font-size: 3em;
+    margin-bottom: 10px;
+    line-height: 1.4em;
+    font-weight: 700;
+}
+
+.content .textBox p {
+    color: #fff;
+}
+
+.content .btn {
+    width: 150px;
+    border: 0;
+    outline: none;
+    color: #fff;
+    background: var(--orange);
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: width 0.5s;
+    padding: 0.8rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.btn img {
+    width: 18px;
+    display: none;
+    transform: rotate(45deg);
+}
+
+.btn:hover img {
+    display: block;
+}
+
+.btn:hover {
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Slider Start */
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 180px;
+    height: 460px;
+    display: flex;
+    justify-content: center;
+    margin: 0 150px 0 150px;
+}
+
+
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+    background-image: none;
+}
+
+.swiper-slide img {
+    position: absolute;
+    bottom: 0;
+    max-height: 100%;
+}
+
+/* Slider End */
+
+.content .imgBox {
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content .imgBox img {
+    max-width: 400px;
+}
+
+/* RESPONSIVE  */
+
+@media (max-width:991px) {
+    body {
+        overflow-y: visible;
+    }
+
+    header {
+        padding: 40px;
+    }
+
+    section {
+        padding: 150px 40px;
+    }
+
+    .sci {
+        left: 40px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .content .textBox,
+    .content .imgBox {
+        max-width: 100%;
+    }
+
+    .swiper-slide {
+        height: 400px;
+    }
+
+    header .navigation {
+        display: none;
+    }
+
+    header .navigation.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--red);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+
+    header .navigation li a {
+        margin: 10px 0;
+        font-size: 1.5em;
+        font-weight: 300;
+    }
+
+    .toggle {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background-image: url(./images/icons/menu.png);
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        z-index: 10000;
+    }
+
+    .toggle.active {
+        background: url(./images/icons/close.png);
+        background-size: 25px;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: fixed;
+        right: 40px;
+
+    }
+
+    .swipe-text {
+        top: 1rem;
+        margin-top: 1rem;
+    }
+
+    .arrow {
+        height: 4rem;
+    }
+}
+
+.swipe-text {
+    position: absolute;
+    font-size: 26px;
+    color: var(--light);
+    transform: rotate(-20deg);
+}
+
+.arrow {
+    width: 5rem;
+    top: .8rem;
+    margin: .5rem;
+    position: absolute;
+    transform: rotate(190deg) scaleX(-1);
+}
+
+/* main section */
+
+#main-section {
+    background-color: white;
+    padding: 2em;
+}
+
+#main-section .container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+#main-section img {
+    border-radius: 30px;
+    max-width: 200px;
+    border: 1px #003049 solid;
+}
+
+#recipe-list .box,
+#top-rated-recipe .box {
+    /* display: grid;
+    grid-template-columns: 1fr 3fr; */
+    line-height: 2em;
+    padding-bottom: 2em;
+}
+
+
+#section-rigth {
+    text-align: center;
+}
+
+#load-more {
+    position: relative;
+    text-align: center;
+}
+
+#load-more button {
+    padding: 0.8em;
+    background-color: #FCBF49;
+    color: white;
+    border-radius: 20px;
+    border: 1px #003049 solid;
+    cursor: pointer;
+}
+
+#load-more button:hover {
+    background-color: white;
+    color: #003049;
+    border: 1px orange solid;
+}
+
+#recipe-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    box-sizing: border-box;
+
+}
+
+.container h2 {
+    position: relative;
+    padding-bottom: 1em;
+}
+
+#top-rated-recipe h2 {
+    position: relative;
+    padding-bottom: 1em;
+}
+
+
+#recipe-list .box-description {
+    max-width: 32vh;
+    text-align: justify;
+    font-size: smaller;
+}
+
+/* #recipe-list .box-description .duration{
+    display: flex;
+    justify-content: space-between;
+ } */
+
+#top-rated-recipe .box-description {
+    max-width: 32vh;
+    text-align: justify;
+    font-size: smaller;
+}
+
+#top-rated-recipe .box-description .duration {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .box-img{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4em;
+ } */
+
+#recipe-list .box {
+    display: none;
+}
+
+#recipe-list .box:nth-child(1) {
+    display: block;
+}
+
+#recipe-list .box:nth-child(2) {
+    display: block;
+}
+#recipe-list .box:nth-child(3) {
+    display: block;
+}
+
+#top-rated-recipe .box {
+    display: none;
+}
+
+#top-rated-recipe .box:nth-child(1) {
+    display: block;
+}
+
+#top-rated-recipe .box:nth-child(2) {
+    display: block;
+}
+#top-rated-recipe .box:nth-child(3) {
+    display: block;
+}
+
+/* modal css */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

@@ -1,19 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    color: #003049;
-    background-color: #f0f0f0;
-    max-width: 100%;
-}
+
 
 /* MAIN CONTAINER */
-.container{
+#myModal .container{
     display: grid;
     grid-template-areas: 
         "image"
@@ -23,18 +11,18 @@ body{
     max-width: 100%;
     padding-bottom: 2rem;
 }
-.food-title{
+#myModal .food-title{
     font-size: 2rem;
     padding: 1rem;
     margin-top: 1rem;
     text-align: center;
 }
-.container__image{
+#myModal .container__image{
     width: 100%;
     margin: 3rem 0;
     grid-area: image;
 }
-.food-image{
+#myModal .food-image{
     border-radius: 15px 50px 30px;
     display: block;
     margin: auto;
@@ -43,18 +31,18 @@ body{
 }
 
 /* INGREDENTS CONTAINER */
-.container__ingredients{
+#myModal .container__ingredients{
     grid-area: ingredients;
 }
-.container__ingredients-heading{
+#myModal .container__ingredients-heading{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.ingredients-heading{
+#myModal .ingredients-heading{
     font-size: 1.6rem;
 }
-.container__ingredients-items{
+#myModal .container__ingredients-items{
     margin: 2rem 0;
     display: flex;
     justify-content: center;
@@ -63,23 +51,23 @@ body{
     overflow: auto;
     max-height: 16rem;
 }
-.ingredient-item{
+#myModal .ingredient-item{
     margin: .5rem;
     border: 1px solid #f77f00;
     border-radius: 10px 23px 20px;
     padding: .75rem;
     box-shadow: #002f496c 2px 2px 4px;
 }
-.ingredient-name{
+#myModal .ingredient-name{
     font-size: 1.1rem;
 }
-.ingredient-quantity{
+#myModal .ingredient-quantity{
     font-size: .8rem;
     color: #f77f00;
 }
 
 /* SUMMARY CONTAINER */
-.container__summary{
+#myModal .container__summary{
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -92,22 +80,22 @@ body{
     padding: 2rem;
     grid-area: summary;
 }
-.summary-heading{
+#myModal .summary-heading{
     margin-bottom: 1rem;
     font-size: 1.6rem;
 }
-.summary-item{
+#myModal .summary-item{
     list-style: none;
     display: flex;
     align-items:center;
     justify-content: flex-start;
 }
-.summary-logo{
+#myModal .summary-logo{
     margin: .5rem;
 }
 
 /* DIRECTIONS CONTAINER */
-.container__directions{
+#myModal .container__directions{
     margin-top: 3rem;
     padding: 1.5rem;
     background-color:#003049;
@@ -118,13 +106,13 @@ body{
     max-height: 18rem;
     grid-area: directions;
 }
-.directions-heading{
+#myModal .directions-heading{
     color: #f77f00;
     font-size: 2rem;
     padding: 1rem 0;
     margin-bottom: 1rem;
 }
-.directions-item{
+#myModal .directions-item{
     padding: 0 .3rem;
 }
 
@@ -132,50 +120,46 @@ body{
 
 /* TABLETS 481px - 768px*/
 @media screen and (min-width: 481px) {
-    body{
-        font-size: 16px;
-    }
-    .container{
+
+    #myModal .container{
         grid-template-areas: 
         "image image image"
         "summary ingredients ingredients"
         "directions directions directions";
     }
-    .food-image{
+    #myModal .food-image{
         width: 30rem;
     }
-    .container__ingredients-heading{
+    #myModal .container__ingredients-heading{
         justify-content: flex-start;
     }
-    .container__ingredients-items{
+    #myModal .container__ingredients-items{
         justify-content: flex-start;
         max-height: 13rem;
     }
-    .container__summary{
+    #myModal .container__summary{
         width: 16rem;
         height: 16rem;
         align-self: center;
     }
-    .ingredients-logo{
+    #myModal .ingredients-logo{
         width: 3rem;
     }
-    .container__directions{
+    #myModal .container__directions{
         padding: 1rem 2.5rem;
         margin: 4rem 1rem;
     }
-    .footer__menu{
+    #myModal .footer__menu{
         flex-direction: row;
     }
-    .footer__menu-item{
+    #myModal .footer__menu-item{
         padding: 1rem;
     }
 }
 /* LAPTOPS  769px - 1024px*/
 @media screen and (min-width: 769px) {
-    body{
-        font-size: 16px;
-    }
-    .container{
+
+    #myModal .container{
         grid-template-areas: 
         "image image ingredients ingredients ingredients"
         "summary directions directions directions directions";
@@ -183,34 +167,34 @@ body{
         grid-gap: 2rem;
     }
 
-    .container__ingredients{
+    #myModal .container__ingredients{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
         margin: 3rem 4rem 0 0;
     }
-    .ingredients-logo{
+    #myModal .ingredients-logo{
         width: 4rem;
         border-radius: 5rem;
         margin-right: 1rem;
     }
-    .container__ingredients-items{
+    #myModal .container__ingredients-items{
         max-height: 15.5rem;
     }
-    .ingredients-heading{
+    #myModal .ingredients-heading{
         font-size: 2rem;
     }
-    .food-image{
+    #myModal .food-image{
         width: 32rem;
     }
-    .container__summary{
+    #myModal .container__summary{
         width: 20rem;
         max-height: 22rem;
         height: 18rem;
         margin-left: 5rem;
     }
-    .container__directions{
+    #myModal .container__directions{
         margin: 0 4rem 0 0;
     }
 }

@@ -5,34 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/home/css/style.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <title>Home</title>
 </head>
 
 <body>
 
     <!-- header -->
-    <header id="header">
-        <div id="logo">
-            <a href="#">
-                <img src="https://s3-alpha-sig.figma.com/img/cd8c/fe58/b8424ab0a8e329e90a5cc3875328e127?Expires=1638748800&Signature=X0UbQGGlVA5uYivLovkcG1ulGuXl5DfbPwVn9OIQmTSjnwUFlgVJjW-b3nchbgnKLAsgCGaSs4bBqsPcuKQIXO2sus9MV4L-mxdNyQ~9xMcwq28AYXhDru1ITi6EGKg79w7Tje8hUNbGmqu5P8pT9ynN16V9DMsKxqTjO-o1kmVJSGma~nMJYvDlnjyRcrN3nivO1A3f~yfv9X0uOODPgsK4kG3JnpqoI1tSqMUv~~ZXEgryS534-IKv8n3NrhJ7USm19D6vviZUU8gMBYwG8qWabauio1GZAC0YE5~b9yFDernEjHVKDAyj00u0kl3AGv3ugAwA8Q0PVdQTrSQdTg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    alt="logo">
-            </a>
-
-        </div>
-        <div id="menu-links">
-            <ul class="menu">
-                <li class="menu-item"><a class="menu-link selected-link" href="#">Home</a></li>
-                <li class="menu-item"><a class="menu-link" href="#">About Us</a></li>
-                <li class="menu-item"><a class="menu-link" href="#">Categories</a></li>
-                <li class="menu-item"><a class="menu-link" href="#">Pages</a></li>
-            </ul>
-        </div>
-        <div id="list-of-fav-recipes">
-            <a href="#"><i class="far fa-heart"></i></a>
-        </div>
+    <header>
+        <a href="#"><img src="/images/logowhite.png" class="logo"></a>
+        <div class="toggle" onclick="toggleMenu()"></div>
+        <ul class="navigation">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/home/index.html">List</a></li>
+            <li><a href="/about-us/about.html">About Us</a></li>
+            <li><a href="/contact us/contactus.html">Contact Us</a></li>
+        </ul>
     </header>
     <!-- home -->
     <main id="main">
@@ -42,52 +32,25 @@
                     <input type="text" id="search" class="search">
                     <button id="btn-submit-search" class="btn btn-search"><i class="fas fa-search"></i></button>
                 </div>
-                <div id="section-newest-food">
-                    <h2>Newest Food</h2>
-                    <div class="box">
-                        <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&webp=true&resize=300,272"
-                            alt="food">
-                    </div>
-                </div>
+
                 <div id="section-cat-food-search">
                     <div class="cat-list">
-                        <button class="cat" value="Fruit and vegetables">#FruitAndVegetables</button>
-                        <button class="cat" value="Starchy food">#StarchyFood</button>
-                        <button class="cat" value="Dairy">#Dairy</button>
-                        <button class="cat" value="Protein">#Protein</button>
-                        <button class="cat" value="Fat">#Fat</button>
-                        <button class="cat" value="Protein">#FastFood</button>
-                        <button class="cat" value="Fat">#Healthy</button>
-                        <button class="cat" value="Fat">#Dinner</button>
-                        
+                        <button class="cat" value="vegetarian">#vegetarian</button>
+                        <button class="cat" value="vegan">#vegan</button>
+                        <button class="cat" value="glutenFree">#glutenFree</button>
+                        <button class="cat" value="dairyFree">#dairyFree</button>
+                        <button class="cat" value="veryHealthy">#veryHealthy</button>
+                        <button class="cat" value="cheap">#cheap</button>
+                        <button class="cat" value="veryPopular">#veryPopular</button>
+                        <button class="cat" value="sustainable">#sustainable</button>
+
                     </div>
                     <div class="cat-food-list">
-                        <div>
-                            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&webp=true&resize=300,272"
-                                alt="food" value="img-food">
-                        </div>
-                        <div class="description">
-                            <div class="food-title">
-                                <p>Food name</p>
-                                <p>30 min</p>
-                            </div>
-                            <div class="food-description">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio nobis quasi
-                                    necessitatibus eos amet earum. Cum corporis soluta veniam? Nulla!</p>
-                            </div>
 
-                        </div>
                     </div>
                 </div>
             </div>
-            <div id="section-most-popular-food">
-                <h2>Recipe Feed</h2>
-                <div class="list-of-food-most-popular">
-                    <div class="box-most-popular">
-                        <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&webp=true&resize=300,272" alt="food">
-                    </div>
-                </div>
-            </div>
+
         </div>
 
     </main>
@@ -124,6 +87,10 @@
     <script src="js/js.js"></script>
     <!-- fontawesome icons -->
     <script src="https://kit.fontawesome.com/b55e23319b.js" crossorigin="anonymous"></script>
+    <!-- jquery-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </body>
 
 </html>
