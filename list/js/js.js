@@ -29,14 +29,13 @@ async function filterRecipes() {
 
           recipeTitle.textContent = element["title"];
           recipeImage.src = element["image"];
-          let preparation = element["summary"].substring(0, 400);
+          getPreparation.innerHTML = element["summary"].substring(0, 400) + '...';
           cookingTime.textContent = element["readyInMinutes"] + " min";
 
           createBoxImg.append(recipeImage);
           box.append(createBoxImg);
 
           createDuration.append(recipeTitle, cookingTime);
-          getPreparation.append(preparation);
           createBoxDesc.append(createDuration);
           createBoxDesc.append(getPreparation);
 

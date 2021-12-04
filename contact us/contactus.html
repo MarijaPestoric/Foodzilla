@@ -8,25 +8,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../contact us/contactus.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="contactus.css">
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <title>Contact</title>
 </head>
 
 <body>
-    <section>
-        <div class="circle"></div>
-        <header>
-            <a href="/index.html"><img src="./images/logowhite.png" class="logo"></a>
-            <div class="toggle" onclick="toggleMenu()"></div>
-            <ul class="navigation">
+    <header>
+        <div class="topnav">
+            <a href="/index.html" class="active"><img src="/images/logowhite.png" class="logo"></a>
+            <ul class="navigation" id="myLinks">
                 <li><a href="/index.html">Home</a></li>
-                <li><a href="/home/index.html">List</a></li>
-                <li><a href="./about-us/about.html">About Us</a></li>
-                <li><a href="./contact us/contactus.html">Contact Us</a></li>
+                <li><a href="/list/index.html">List</a></li>
+                <li><a href="/about-us/about.html">About Us</a></li>
+                <li><a href="/contact us/contactus.html">Contact Us</a></li>
             </ul>
-        </header>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+    <section>
         <div class="container">
             <div class="contactinfo">
                 <div>
@@ -83,38 +86,51 @@
                 </div>
             </div>
         </div>
-
-        <!-- footer -->
-        <footer id="footer">
-            <div class="footer-box footer-box-1">
-                <div class="footer-box-1-text">
-                    <h2>FoodZilla</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                        ut
-                        aliquip ex ea commodo consequat.</p>
-                </div>
-            </div>
-            <div class="footer-box footer-box-2">
-                <div class="footer">
-                    <ul class="footer__menu">
-                        <li class="footer__menu-item"><a class="footer__menu-link selected-link" href="#">Home</a></li>
-                        <li class="footer__menu-item"><a class="footer__menu-link" href="#">About Us</a></li>
-                        <li class="footer__menu-item"><a class="footer__menu-link" href="#">Categories</a></li>
-                        <li class="footer__menu-item"><a class="footer__menu-link" href="#">Pages</a></li>
-                    </ul>
-                </div>
-                <div class="social-meadia">
-                    <ul>
-                        <li><i class="fab fa-twitter"></i></li>
-                        <li><i class="fab fa-instagram"></i></li>
-                        <li><i class="fab fa-facebook"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
     </section>
+    <!-- footer -->
+    <footer id="footer">
+        <div class="footer-box footer-box-1">
+            <div class="footer-box-1-text">
+                <h2>FoodZilla</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                    ut
+                    aliquip ex ea commodo consequat.</p>
+            </div>
+        </div>
+        <div class="footer-box footer-box-2">
+            <div class="footer">
+                <ul class="footer__menu">
+                    <li class="footer__menu-item"><a class="footer__menu-link selected-link" href="#">Home</a></li>
+                    <li class="footer__menu-item"><a class="footer__menu-link" href="#">About Us</a></li>
+                    <li class="footer__menu-item"><a class="footer__menu-link" href="#">Categories</a></li>
+                    <li class="footer__menu-item"><a class="footer__menu-link" href="#">Pages</a></li>
+                </ul>
+            </div>
+            <div class="social-meadia">
+                <ul>
+                    <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
+                    <li><i class="fab fa-facebook"></i></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- fontawesome icons -->
+    <script src="https://kit.fontawesome.com/b55e23319b.js" crossorigin="anonymous"></script>
+    <script>
+
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+
+    </script>
 </body>
 
 </html>

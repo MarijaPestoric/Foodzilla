@@ -1,14 +1,15 @@
 header {
-    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
-    padding: 40px 100px;
+    padding: 17px 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #003049;
+    flex-direction: row;
 }
+
 header .logo {
     position: relative;
     max-width: 130px;
@@ -29,4 +30,73 @@ header .navigation li a {
     font-weight: 500;
     text-decoration: none;
     margin-left: 40px;
+}
+
+header .navigation li:hover {
+    border-bottom: 2px #003049 solid;
+}
+
+/* mobile header */
+
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    width: 110vw;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+    display: none;
+    text-align: center;
+}
+
+/* Style navigation menu links */
+.topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+    background: #003049;
+    display: block;
+    position: absolute;
+    border-radius: 30px;
+    right: 13px;
+    top: 21px;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+    color: #ddd;
+}
+
+/* LAPTOPS */
+@media screen and (min-width: 768px) {
+    .topnav {
+        display: flex;
+        width: 100vw;
+    }
+
+    .topnav #myLinks {
+        display: flex;
+        width: 120%;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    header .navigation li a {
+        margin: 0;
+    }
+
+    .topnav a.icon {
+        display: none;
+    }
+
+    .topnav .active {
+        width: 93vw;
+    }
 }

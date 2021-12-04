@@ -8,7 +8,7 @@ async function getInfoRecipes() {
     let data = await res.json();
     let recipeList = document.querySelector("#recipe-list");
     data["recipes"].forEach((element) => {
-      let recipeTitle = document.createElement("p");
+      let recipeTitle = document.createElement("strong");
       let recipeImage = document.createElement("img");
       let cookingTime = document.createElement("p");
       let getPreparation = document.createElement("p");
@@ -16,8 +16,16 @@ async function getInfoRecipes() {
       let createBoxDesc = document.createElement("div");
       let createDuration = document.createElement("div");
       let box = document.createElement("div");
+      let details = document.createElement("div");
+
+      let directionsList = document.createElement("div");
+
+      let servingCount = document.createElement("p");
+      let servingKcal = document.createElement("p");
+      let ingredientItems = document.createElement("ul");
 
       box.className = "box";
+      details.className = "details";
       recipeTitle.className = "food-title";
       recipeImage.className = "food-image";
       cookingTime.className = "food-duration";
@@ -26,21 +34,44 @@ async function getInfoRecipes() {
       createBoxImg.className = "box-img";
       createDuration.className = "duration";
 
-      recipeTitle.textContent = element["title"];
-      recipeImage.src = element["image"];
-      let preparation = element["summary"].substring(0, 100);
-      cookingTime.textContent = element["readyInMinutes"];
+      directionsList.className = "directionsList";
+      servingCount.className = "servingCount";
+      servingKcal.className = "servingKcal";
+      ingredientItems.className = "ingredientItems";
 
+      recipeTitle.innerHTML = element["title"];
+      recipeImage.src = element["image"];
+      getPreparation.innerHTML =
+        '<i class="fas fa-user-friends"></i> ' + element["servings"];
+      cookingTime.innerHTML =
+        '<i class="fas fa-stopwatch"></i> ' +
+        element["readyInMinutes"] +
+        " min";
+      directionsList.innerHTML = element["instructions"];
+      servingCount.innerHTML = element["servings"];
+      servingKcal.innerHTML = element["pricePerServing"];
+      element["analyzedInstructions"].forEach((element) => {
+        element["steps"].forEach((element) => {
+          element["ingredients"].forEach((element) => {
+            ingredientItems.innerHTML += `<li>${element["name"]}</li>`;
+          });
+        });
+      });
+      details.style.display = "none";
       createBoxImg.append(recipeImage);
       box.append(createBoxImg);
 
-      createDuration.append(recipeTitle, cookingTime);
-      getPreparation.append(preparation);
+      createDuration.append(recipeTitle);
       createBoxDesc.append(createDuration);
-      createBoxDesc.append(getPreparation);
+      createBoxDesc.append(cookingTime, getPreparation);
 
       box.append(createBoxDesc);
 
+      details.append(directionsList);
+      details.append(servingCount);
+      details.append(servingKcal);
+      details.append(ingredientItems);
+      box.append(details);
       recipeList.append(box);
     });
   } catch (error) {
@@ -67,32 +98,65 @@ async function topRatedRecipes() {
       let topRatedCreateBoxDesc = document.createElement("div");
       let topRatedCreateDuration = document.createElement("div");
       let topRatedBox = document.createElement("div");
+      let details = document.createElement("div");
+
+      let directionsList = document.createElement("div");
+      let directionsItems = document.createElement("div");
+      let servingCount = document.createElement("p");
+      let servingKcal = document.createElement("p");
+      let ingredientItems = document.createElement("ul");
 
       topRatedBox.className = "box";
-      topRatedRecipeTitle.className = "top-rated-title";
-      topRatedRecipeImage.className = "top-rated-image";
-      topRatedCookingTime.className = "top-rated-duration";
-      topRatedPreparation.className = "top-rated-preparation";
+      details.className = "details";
+      topRatedRecipeTitle.className = "food-title";
+      topRatedRecipeImage.className = "food-image";
+      topRatedCookingTime.className = "food-duration";
+      topRatedPreparation.className = "food-preparation";
       topRatedcreateBoxImg.className = "box-img";
       topRatedCreateBoxDesc.className = "box-description";
       topRatedCreateDuration.className = "duration";
 
+      directionsList.className = "directionsList";
+      directionsItems.className = "directionsItems";
+      servingCount.className = "servingCount";
+      servingKcal.className = "servingKcal";
+      ingredientItems.className = "ingredientItems";
+
+      details.style.display = "none";
+
       if (element["veryPopular"] === true) {
         topRatedRecipeTitle.textContent = element["title"];
         topRatedRecipeImage.src = element["image"];
-        topRatedCookingTime.textContent = element["readyInMinutes"];
-        let preparation = element["summary"].substring(0, 100);
+        topRatedPreparation.innerHTML =
+          '<i class="fas fa-user-friends"></i> ' + element["servings"];
+        topRatedCookingTime.innerHTML =
+          '<i class="fas fa-stopwatch"></i> ' +
+          element["readyInMinutes"] +
+          " min";
+        directionsList.innerHTML = element["instructions"];
+        servingCount.innerHTML = element["servings"];
+        servingKcal.innerHTML = element["pricePerServing"];
+        element["analyzedInstructions"].forEach((element) => {
+          element["steps"].forEach((element) => {
+            element["ingredients"].forEach((element) => {
+              ingredientItems.innerHTML += `<li>${element["name"]}</li>`;
+            });
+          });
+        });
 
         topRatedcreateBoxImg.append(topRatedRecipeImage);
         topRatedBox.append(topRatedcreateBoxImg);
-
-        topRatedCreateDuration.append(topRatedRecipeTitle, topRatedCookingTime);
-        topRatedPreparation.append(preparation);
+        topRatedCreateDuration.append(topRatedRecipeTitle);
         topRatedCreateBoxDesc.append(topRatedCreateDuration);
-        topRatedCreateBoxDesc.append(topRatedPreparation);
+        topRatedCreateBoxDesc.append(topRatedPreparation, topRatedCookingTime);
+
+        details.append(directionsList);
+        details.append(servingCount);
+        details.append(servingKcal);
+        details.append(ingredientItems);
 
         topRatedBox.append(topRatedCreateBoxDesc);
-
+        topRatedBox.append(details);
         topRatedRecipeList.append(topRatedBox);
       }
     });
@@ -119,32 +183,63 @@ async function healthyRecipes() {
       let healthyCreateBoxDesc = document.createElement("div");
       let healthyCreateDuration = document.createElement("div");
       let healthyBox = document.createElement("div");
+      let details = document.createElement("div");
+
+      let directionsList = document.createElement("div");
+      let servingCount = document.createElement("p");
+      let servingKcal = document.createElement("p");
+      let ingredientItems = document.createElement("ul");
 
       healthyBox.className = "box";
-      healthyRecipeTitle.className = "healthy-title";
-      healthyRecipeImage.className = "healthy-image";
-      healthyCookingTime.className = "healthy-duration";
-      healthyPreparation.className = "healthy-preparation";
+      details.className = "details";
+      healthyRecipeTitle.className = "food-title";
+      healthyRecipeImage.className = "food-image";
+      healthyCookingTime.className = "food-duration";
+      healthyPreparation.className = "food-preparation";
       healthycreateBoxImg.className = "box-img";
       healthyCreateBoxDesc.className = "box-description";
       healthyCreateDuration.className = "duration";
 
+      directionsList.className = "directionsList";
+      servingCount.className = "servingCount";
+      servingKcal.className = "servingKcal";
+      ingredientItems.className = "ingredientItems";
+
       if (element["veryHealthy"] === true) {
         healthyRecipeTitle.textContent = element["title"];
         healthyRecipeImage.src = element["image"];
-        healthyCookingTime.textContent = element["readyInMinutes"];
-        let preparation = element["summary"].substring(0, 100);
+        healthyPreparation.innerHTML =
+          '<i class="fas fa-user-friends"></i> ' + element["servings"];
+        healthyCookingTime.innerHTML =
+          '<i class="fas fa-stopwatch"></i> ' +
+          element["readyInMinutes"] +
+          " min";
+        directionsList.innerHTML = element["instructions"];
+        servingCount.innerHTML = element["servings"];
+        servingKcal.innerHTML = element["pricePerServing"];
+        element["analyzedInstructions"].forEach((element) => {
+          element["steps"].forEach((element) => {
+            element["ingredients"].forEach((element) => {
+              ingredientItems.innerHTML += `<li>${element["name"]}</li>`;
+            });
+          });
+        });
+
+        details.style.display = "none";
 
         healthycreateBoxImg.append(healthyRecipeImage);
         healthyBox.append(healthycreateBoxImg);
 
-        healthyCreateDuration.append(healthyRecipeTitle, healthyCookingTime);
-        healthyPreparation.append(preparation);
+        healthyCreateDuration.append(healthyRecipeTitle);
         healthyCreateBoxDesc.append(healthyCreateDuration);
-        healthyCreateBoxDesc.append(healthyPreparation);
+        healthyCreateBoxDesc.append(healthyPreparation, healthyCookingTime);
 
+        details.append(directionsList);
+        details.append(servingCount);
+        details.append(servingKcal);
+        details.append(ingredientItems);
+        healthyBox.append(details);
         healthyBox.append(healthyCreateBoxDesc);
-
         healthyRecipeList.append(healthyBox);
       }
     });
@@ -162,10 +257,6 @@ function loadMore() {
   let currentItems = 3;
   loadmore.addEventListener("click", (e) => {
     const elementList = [...document.querySelectorAll("#recipe-list .box")];
-    // const elementList1 = [
-    //   ...document.querySelectorAll("#top-rated-recipe .box"),
-    // ];
-
     for (let i = currentItems; i < currentItems + 3; i++) {
       if (elementList[i]) {
         elementList[i].style.display = "block";
@@ -183,6 +274,28 @@ function loadMore() {
 
 loadMore();
 
+function loadMore1() {
+  const loadmore = document.querySelector("#loadmore");
+  let currentItems = 3;
+  loadmore.addEventListener("click", (e) => {
+    const elementList = [
+      ...document.querySelectorAll("#top-rated-recipe .box"),
+    ];
+    for (let i = currentItems; i < currentItems + 3; i++) {
+      if (elementList[i]) {
+        elementList[i].style.display = "block";
+        // elementList1[i].style.display = "block";
+      }
+    }
+    currentItems += 3;
+
+    // Load more button will be hidden after list fully loaded
+    if (currentItems >= elementList.length) {
+      event.target.style.display = "none";
+    }
+  });
+}
+loadMore1();
 async function recipes() {
   const url = "Recipes.json";
   let response = await fetch(url);
@@ -202,25 +315,28 @@ function modelWindow() {
   let recipeTitle = document.querySelector(".food-title");
   let recipeImage = document.querySelector(".food-image");
   let directionsList = document.querySelector(".directions-list");
-  let directionsItems = Array.from(
-    document.querySelectorAll(".directions-item")
-  );
   let cookingTime = document.querySelector(".cooking-time");
   let servingCount = document.querySelector(".serving-count");
   let servingKcal = document.querySelector(".serving-kcal");
   let ingredientItems = document.querySelector(".container__ingredients-items");
-  let ingredientName = document.querySelector(".ingredient-name");
-  let ingredientQuantity = document.querySelector(".ingredient-quantity");
 
   $(document).on("click", ".box", function () {
     modal.style.display = "block";
-    let foodTitle = this.querySelector('.food-title');
-    let foodImg = this.querySelector('.food-image');
-    let time = this.querySelector('.food-duration');
+    let foodTitle = this.querySelector(".food-title");
+    let foodImg = this.querySelector(".food-image");
+    let time = this.querySelector(".food-duration");
+    let dirList = this.querySelector(".directionsList");
+    let serCount = this.querySelector(".servingCount");
+    let ingredItems = this.querySelector(".ingredientItems");
+    let servKcal = this.querySelector(".servingKcal");
+
     recipeTitle.append(foodTitle.textContent);
     recipeImage.src = foodImg.src;
-    cookingTime.textContent = time.textContent + ' min';
-
+    cookingTime.textContent = time.textContent + " min";
+    directionsList.innerHTML = dirList.innerHTML;
+    servingCount.innerHTML = serCount.textContent;
+    servingKcal.innerHTML = servKcal.textContent + " cal";
+    ingredientItems.innerHTML += '<ul>' + ingredItems.innerHTML + '</ul>';
   });
 
   // When the user clicks on <span> (x), close the modal

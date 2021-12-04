@@ -5,11 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
@@ -21,14 +17,18 @@
     <section>
         <div class="circle"></div>
         <header>
-            <a href="/index.html"><img src="./images/logowhite.png" class="logo"></a>
-            <div class="toggle" onclick="toggleMenu()"></div>
-            <ul class="navigation">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/home/index.html">List</a></li>
-                <li><a href="/about-us/about.html">About Us</a></li>
-                <li><a href="/contact us/contactus.html">Contact Us</a></li>
-            </ul>
+            <div class="topnav">
+                <a href="/index.html" class="active"><img src="./images/logowhite.png" class="logo"></a>
+                <ul class="navigation" id="myLinks">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/list/index.html">List</a></li>
+                    <li><a href="/about-us/about.html">About Us</a></li>
+                    <li><a href="/contact us/contactus.html">Contact Us</a></li>
+                </ul>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
         </header>
         <div class="content">
             <div class="textBox">
@@ -57,16 +57,16 @@
         <div id="main-section">
             <div class="container">
                 <div id="content">
-                    <h2>Recipes</h2>
+                    <h3> RECIPES <i class="fas fa-utensils"></i></h3>
                     <div id="recipe-list">
                     </div>
-                    <h2>Top Rated</h2>
+                    <h3 class="top-rated">TOP RATED <i class="fas fa-star"></i></h3>
                     <div id="top-rated-recipe">
                     </div>
                 </div>
                 <div id="section-rigth">
                     <div id="fb-feed">
-                        <h2>Facebook Feed</h2>
+                        <h3>Facebook Feed</h3>
                         <div>
                             <iframe
                                 src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCookzilla-101593645703920&tabs=timeline&width=250&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
@@ -75,7 +75,7 @@
                                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         </div>
                     </div>
-                    <h2>Healthy Recipes</h2>
+                    <h3>Healthy recipes</h3>
                     <div id="healthy-recipes">
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                             <li class="summary-item"><img class="summary-logo" src="/recipe/images/user (1).png"
                                     alt="servings" width="30px"><span class="serving-count"></span> </li>
                             <li class="summary-item"><img class="summary-logo" src="/recipe/images//calories.png"
-                                    alt="calories" width="30px"><span class="serving-kcal">300kcal</span> </li>
+                                    alt="calories" width="30px"><span class="serving-kcal"></span> </li>
                         </ul>
                     </div>
                     <div class="container__directions">
@@ -123,9 +123,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         <!-- footer -->
         <footer id="footer">
             <div class="footer-box footer-box-1">
@@ -187,11 +185,13 @@
             loop: true,
         });
 
-        function toggleMenu() {
-            const menuToggle = document.querySelector('.toggle');
-            const navigation = document.querySelector('.navigation')
-            menuToggle.classList.toggle('active')
-            navigation.classList.toggle('active')
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
         }
     </script>
 

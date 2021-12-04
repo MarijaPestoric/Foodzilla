@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 * {
     margin: 0%;
     padding: 0%;
@@ -7,38 +8,31 @@
 
 }
 
-/* #main {
-    height: 100vh;
-} */
-
 #main #section-search {
     display: flex;
 }
 
 #main #section-search #search {
-    width: 23vw;
     border: 1px solid orange;
     border-radius: 30px;
 }
 
 #main #section-search #btn-submit-search {
-    border-radius: 30px;
-    width: 2vw;
+    border-radius: 40px;
     border: none;
     background-color: orange;
     color: white;
     margin-left: 10px;
     cursor: pointer;
+    padding: 0.5em;
 }
 
 #main .container {
     padding: 6vh;
-    display: grid;
-    grid-template-columns: 1fr 0.3fr;
 }
 
 #main .box .box-img img {
-    width: 16vw;
+    width: 386px;
     border-radius: 45px;
 }
 
@@ -46,11 +40,11 @@
     position: static;
     margin: 1em 0px 1em 0px;
     display: flex;
-    justify-content: space-around;
+    overflow: scroll;
 }
 
 #main #section-cat-food-search {
-    width: 60vw;
+    width: 90vw;
 }
 
 #main .cat-food-list {
@@ -59,10 +53,6 @@
     gap: 2em;
 }
 
-/* #main .cat-food-list .box-img {
-    max-width: 10vw;
-    border-radius: 20px;
-} */
 
 #main .food-title {
     display: flex;
@@ -82,17 +72,31 @@
     padding: 0.5em;
     cursor: pointer;
 }
+
 #main .cat:hover {
 
     border: 1px solid #003049;
     background-color: orange;
     color: white;
 }
-#main #section-most-popular-food{
+
+#main #section-most-popular-food {
     text-align: center;
 }
 
-.duration{
+.duration {
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+    .box-description {
+        max-width: 53vw;
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+    #main #section-search #search {
+        width: 30vw;
+    }
 }
