@@ -1,82 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Variables */
+
+:root {
+    --blue: #003049;
+    --red: #D62828;
+    --orange: #F77F00;
+    --yellow: #FCBF49;
+    --gray: #f0f0f0;
+    --light: #fff;
+    --dark: #000;
+}
+
 /* HEADER */
-.circle{
+.circle {
     position: absolute;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 0;
     height: 100%;
     clip-path: circle(65% at right -20%);
-    background: #d52828; 
-}
-
-header{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo{
-    position: relative;
-    max-width: 130px;
-}
-header .navigation{
-    display: none;
-}
-header .navigation.active{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background: #d52828;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 20;
 }
 
-header .navigation li{
-    list-style: none;
-}
-
-header .navigation li a{
-    display: inline-block;
-    color: #fff;
-    margin: 10px 0;
-    font-size: 1.5em;
-    font-weight: 300;
-    text-decoration: none;
-}
-.toggle{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background-image: url(../images/icons/menu.png);
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-    z-index: 10000;
-}
-.toggle.active{
-    background: url(../images/icons/close.png);
-    background-size: 25px;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: fixed;
-    right: 40px;
-
-}
-
-.main-container{
+.main-container {
     padding-top: 5rem;
     max-width: 100vw;
     padding-bottom: 5rem;
@@ -88,7 +43,7 @@ header .navigation li a{
 }
 
 /* HEADING */
-.heading-container{
+.heading-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,7 +52,8 @@ header .navigation li a{
     z-index: 4;
     padding-top: 3rem;
 }
-.heading-title{
+
+.heading-title {
     font-size: 3rem;
     color: #f77f0f;
     font-family: 'Dancing Script', cursive;
@@ -108,41 +64,45 @@ header .navigation li a{
 }
 
 @keyframes slideIn {
-    0%{
+    0% {
         right: 3rem;
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         right: 0;
         transform: rotate(-10deg);
     }
 }
-.heading-img{
+
+.heading-img {
     width: 10rem;
     transform: rotate(10deg);
 }
-.heading-paragraph{
+
+.heading-paragraph {
     color: #f0f0f0;
     font-size: 1.2rem;
     font-weight: 800;
     text-align: center;
     font-style: italic;
-    margin:0;
+    margin: 0;
     position: relative;
     animation: slideOut 1s ease-in;
 }
 
 @keyframes slideOut {
-    0%{
+    0% {
         left: 3rem;
     }
-    100%{
+
+    100% {
         left: 0;
     }
 }
 
 /* CARDS CONTAINER */
-.cards{
+.cards {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -151,48 +111,59 @@ header .navigation li a{
     text-align: right;
     z-index: 10;
 }
-.card-container{
+
+.card-container {
     margin: 1.5rem;
     max-width: 20rem;
     height: 20rem;
     transition: all .35s ease;
     box-shadow: #003049 1px 5px;
-    background-image:  radial-gradient(#003049 1.55px, transparent 1.05px), radial-gradient(#f77f0f 1.55px, #f0f0f0 1.05px); 
+    background-image: radial-gradient(#003049 1.55px, transparent 1.05px), radial-gradient(#f77f0f 1.55px, #f0f0f0 1.05px);
     background-size: 52px 52px;
     background-position: 0 0, 21px 21px;
 }
-#first-card{
+
+#first-card {
     border-radius: 50px 1px 50px 50px;
 }
-#second-card{
+
+#second-card {
     border-radius: 1px 1px 50px 50px;
 }
-#third-card{
+
+#third-card {
     border-radius: 1px 50px 50px 50px;
 }
-.card-container:hover{
+
+.card-container:hover {
     height: 22rem;
     box-shadow: #002f496b 2px 2px 10px;
 }
-.card-container:hover figure{
+
+.card-container:hover figure {
     transform: scale(0.6) translateY(-1.4rem);
 }
-.card-container:hover .card-title{
+
+.card-container:hover .card-title {
     transform: translateY(-5rem);
 }
-.card-container:hover .card-description{
+
+.card-container:hover .card-description {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
     transition-duration: 1s;
 }
-.card-container:hover .card-description p{
+
+.card-container:hover .card-description p {
     opacity: 1;
 }
-.card-container:hover .card-description hr{
+
+.card-container:hover .card-description hr {
     transition-delay: .3s;
     transform: scale(1.1);
 }
+
 .card-container figure {
     position: relative;
     z-index: 1;
@@ -206,11 +177,13 @@ header .navigation li a{
     transform-origin: center top;
     transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .card-container figure img {
     width: 100%;
     display: block;
     border-radius: 50%;
 }
+
 .card-liner {
     position: relative;
     overflow: hidden;
@@ -220,17 +193,20 @@ header .navigation li a{
     justify-content: center;
     align-items: center;
 }
+
 .card-title {
     text-align: center;
     line-height: 1;
     font-weight: 600;
     transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .card-title h3 {
     margin-bottom: .5rem;
     font-size: 1.4rem;
     color: #003049;
 }
+
 .card-title p {
     margin-bottom: 6rem;
     color: #f77f0f;
@@ -238,6 +214,7 @@ header .navigation li a{
     text-transform: uppercase;
     letter-spacing: 2.2px;
 }
+
 .card-description {
     position: absolute;
     text-align: center;
@@ -248,11 +225,13 @@ header .navigation li a{
     transform: translateY(3rem);
     transition: all 0.02s cubic-bezier(0.1, 0.82, 0.165, 1);
 }
+
 .card-description p {
     font-weight: 300;
     opacity: 0;
     transition: all 0.55s ease 0.1s;
 }
+
 .card-description hr {
     border: none;
     width: 3rem;
@@ -262,23 +241,26 @@ header .navigation li a{
     transform: scale(0, 1);
     transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) 0.05s;
 }
-.card-contact{
+
+.card-contact {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
 }
-.contact-img{
+
+.contact-img {
     width: 2.5rem;
     height: 2.5rem;
     padding: .5rem;
-    
+
 }
 
-.card-container:hover .contact-img{
+.card-container:hover .contact-img {
     transform: scale(1.1) translateY(0.2rem);
     transition-duration: 1s;
 }
-.contact-img:hover{
+
+.contact-img:hover {
     opacity: 0.7;
 }
 
@@ -286,10 +268,11 @@ header .navigation li a{
 
 /* TABLETS */
 @media screen and (min-width: 481px) {
-    .heading-title{
+    .heading-title {
         font-size: 4rem;
     }
-    .card-container{
+
+    .card-container {
         width: 20rem;
     }
 
@@ -297,34 +280,24 @@ header .navigation li a{
 
 /* LAPTOPS */
 @media screen and (min-width: 769px) {
-    .cards{
+    .cards {
         flex-direction: row;
     }
-    header{
-        padding: 40px 100px;
-    }
-    header .navigation{
-        position: relative;
-        display: flex;
-    }
-    header .navigation li a{
-        font-weight: 500;
-        margin-left: 40px;
-        font-size: 1rem;
-    }
-    .toggle{
-        display: none;
-    }
-    .heading-title{
+
+
+    .heading-title {
         font-size: 5rem;
     }
-    .heading-container{
+
+    .heading-container {
         flex-direction: row;
     }
-    .heading-img{
+
+    .heading-img {
         width: 13rem;
     }
-    .heading-paragraph{
+
+    .heading-paragraph {
         font-size: 2rem;
         top: 5rem;
     }
