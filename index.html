@@ -1,81 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-/>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/recipe/css/style.css">
     <title>Foodzilla</title>
 </head>
+
 <body>
     <section>
         <div class="circle"></div>
         <header>
-        <a href="#"><img src="./images/logowhite.png" class="logo"></a>
-        <div class="toggle" onclick="toggleMenu()"></div>
-            <ul class="navigation">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Recipes</a></li>
-                <li><a href="./about-us/about.html">About Us</a></li>
-                <li><a href="./contact us/contactus.html">Contact Us</a></li>
-            </ul>
+            <div class="topnav">
+                <a href="/index.html" class="active"><img src="./images/logowhite.png" class="logo"></a>
+                <ul class="navigation" id="myLinks">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/list/index.html">List</a></li>
+                    <li><a href="/about-us/about.html">About Us</a></li>
+                    <li><a href="/contact us/contactus.html">Contact Us</a></li>
+                </ul>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
         </header>
         <div class="content">
             <div class="textBox">
                 <h2>Cooking a delicious food easily</h2>
-                <p>We help you with all the secret recipes <br>and provide a unique experience in the kitchen. <br>Start exploring now!
-               </p>
-               <button type="button" class="btn">Learn More<img src="./images/icons/spoon.png" alt=""></button>
+                <p>We help you with all the secret recipes <br>and provide a unique experience in the kitchen. <br>Start
+                    exploring now!
+                </p>
+                <button type="button" class="btn">Learn More<img src="./images/icons/spoon.png" alt=""></button>
             </div>
 
             <div class="imgBox">
                 <div class="swiper">
                     <div class="swipe-text">Swipe here! <img class="arrow" src="./images/up-arrow.png" alt=""></div>
                     <div class="swiper-wrapper">
-                      <div class="swiper-slide"><img src="./images/meals/meal1.png" alt=""></div>
-                      <div class="swiper-slide"><img src="./images/meals/meal2.png" alt=""></div>
-                      <div class="swiper-slide"><img src="./images/meals/meal3.png" alt=""></div>
-                      <div class="swiper-slide"><img src="./images/meals/meal4.png" alt=""></div>
-                      <div class="swiper-slide"><img src="./images/meals/meal5.png" alt=""></div>
-                      <div class="swiper-slide"><img src="./images/meals/meal6.png" alt=""></div>
-                      <div class="swiper-slide"><img src="./images/meals/meal7.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/meals/meal1.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/meals/meal2.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/meals/meal3.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/meals/meal4.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/meals/meal5.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/meals/meal6.png" alt=""></div>
+                        <div class="swiper-slide"><img src="./images/meals/meal7.png" alt=""></div>
                     </div>
+                </div>
             </div>
-
         </div>
+        <div id="main-section">
+            <div class="container">
+                <div id="content">
+                    <h3> RECIPES <i class="fas fa-utensils"></i></h3>
+                    <div id="recipe-list">
+                    </div>
+                    <h3 class="top-rated">TOP RATED <i class="fas fa-star"></i></h3>
+                    <div id="top-rated-recipe">
+                    </div>
+                </div>
+                <div id="section-rigth">
+                    <div id="fb-feed">
+                        <h3>Facebook Feed</h3>
+                        <div>
+                            <iframe
+                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCookzilla-101593645703920&tabs=timeline&width=250&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                                width="250" height="400" style="border:none;overflow:hidden" scrolling="no"
+                                frameborder="0" allowfullscreen="true"
+                                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        </div>
+                    </div>
+                    <h3>Healthy recipes</h3>
+                    <div id="healthy-recipes">
+                    </div>
+                </div>
+            </div>
+            <div id="load-more">
+                <button id="loadmore">Loade more</button>
+            </div>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 class="food-title"></h2>
+                <div class="container">
+                    <div class="container__image">
+                        <img class="food-image" src="" alt="food-image">
+                    </div>
+                    <div class="container__ingredients">
+                        <div class="container__ingredients-heading">
+                            <img class="ingredients-logo" src="/recipe/images/ingredients.png" alt="ingredient-logo"
+                                width="40px">
+                            <h2 class="ingredients-heading"> Ingredients</h2>
+                        </div>
+                        <div class="container__ingredients-items">
+                        </div>
+                    </div>
+                    <div class="container__summary">
+                        <h2 class="summary-heading">Quick info</h2>
+                        <ul class="summary-list">
+                            <li class="summary-item"><img class="summary-logo" src="/recipe/images/back-in-time.png"
+                                    alt="time" width="30px"><span class="cooking-time"></span> </li>
+                            <li class="summary-item"><img class="summary-logo" src="/recipe/images/user (1).png"
+                                    alt="servings" width="30px"><span class="serving-count"></span> </li>
+                            <li class="summary-item"><img class="summary-logo" src="/recipe/images//calories.png"
+                                    alt="calories" width="30px"><span class="serving-kcal"></span> </li>
+                        </ul>
+                    </div>
+                    <div class="container__directions">
+                        <h2 class="directions-heading">Directions</h2>
+                        <ol class="directions-list">
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <footer id="footer">
+            <div class="footer-box footer-box-1">
+                <div class="footer-box-1-text">
+                    <h2>FoodZilla</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            <div class="footer-box footer-box-2">
+                <div class="footer">
+                    <ul class="footer__menu">
+                        <li class="footer__menu-item"><a class="footer__menu-link selected-link" href="#">Home</a></li>
+                        <li class="footer__menu-item"><a class="footer__menu-link" href="#">About Us</a></li>
+                        <li class="footer__menu-item"><a class="footer__menu-link" href="#">Categories</a></li>
+                        <li class="footer__menu-item"><a class="footer__menu-link" href="#">Pages</a></li>
+                    </ul>
+                </div>
+                <div class="social-meadia">
+                    <ul>
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                        <li><i class="fab fa-facebook"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </section>
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> 
+    <!-- fontawesome icons -->
+    <script src="https://kit.fontawesome.com/b55e23319b.js" crossorigin="anonymous"></script>
+    <!-- js for slider swiper -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- jquery-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- js -->
+    <script src="/js/js.js"></script>
+
     <script>
         var swiper = new Swiper('.swiper', {
-          effect: 'coverflow',
-          grabCursor: true,
-          centeredSlides: true,
-          slidesPerView: 'auto',
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          },
-          pagination: {
-            el: '.swiper-pagination',
-          },
-          loop:true,
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            loop: true,
         });
 
-        function toggleMenu(){
-            const menuToggle = document.querySelector('.toggle');
-            const navigation = document.querySelector('.navigation')
-            menuToggle.classList.toggle('active')
-            navigation.classList.toggle('active')
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
         }
-      </script>
-    
+    </script>
+
 </body>
+
 </html>
