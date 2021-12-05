@@ -320,7 +320,7 @@ function modelWindow() {
     directionsList.innerHTML = dirList.innerHTML;
     servingCount.innerHTML = serCount.textContent + " servings";
     servingKcal.innerHTML = servKcal.textContent + " kcal";
-    ingredientItems.innerHTML += "<ul>" + ingredItems.innerHTML + "</ul>";
+    ingredientItems.innerHTML = ingredItems.innerHTML;
   });
   span.addEventListener("click", function () {
     modal.style.display = "none";
