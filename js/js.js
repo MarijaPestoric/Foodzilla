@@ -1,8 +1,7 @@
 const apiKey = "1a6bb5b6f75a4d81a0c9e061ff13e161";
-
+const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
 async function getInfoRecipes() {
-  // const url = `https://api.spoonacular.com/recipes/random?number=10&apiKey=${apiKey}`;
-  const url = "Recipes.json";
+  // const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -22,7 +21,7 @@ async function getInfoRecipes() {
 
       let servingCount = document.createElement("p");
       let servingKcal = document.createElement("p");
-      let ingredientItems = document.createElement("ul");
+      let ingredientItems = document.createElement("div");
 
       box.className = "box";
       details.className = "details";
@@ -50,13 +49,13 @@ async function getInfoRecipes() {
       directionsList.innerHTML = element["instructions"];
       servingCount.innerHTML = element["servings"];
       servingKcal.innerHTML = element["pricePerServing"];
-      element["analyzedInstructions"].forEach((element) => {
-        element["steps"].forEach((element) => {
-          element["ingredients"].forEach((element) => {
-            ingredientItems.innerHTML += `<li>${element["name"]}</li>`;
-          });
-        });
+      element["extendedIngredients"].forEach((element) => {
+        // ingredientItems.innerHTML += `<li>${element["name"]}</li>`;
+        ingredientItems.innerHTML += `<div class="ingredient-item">
+        <p class="ingredient-name"> ${element["name"]}</p> 
+        <p> ${element["amount"]} ${element["unit"]}</div>`;
       });
+
       details.style.display = "none";
       createBoxImg.append(recipeImage);
       box.append(createBoxImg);
@@ -83,8 +82,7 @@ getInfoRecipes();
 // top rated
 
 async function topRatedRecipes() {
-  // const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
-  const url = "Recipes.json";
+  // const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -168,8 +166,7 @@ async function topRatedRecipes() {
 topRatedRecipes();
 
 async function healthyRecipes() {
-  // const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
-  const url = "Recipes.json";
+  // const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -336,7 +333,7 @@ function modelWindow() {
     directionsList.innerHTML = dirList.innerHTML;
     servingCount.innerHTML = serCount.textContent;
     servingKcal.innerHTML = servKcal.textContent + " cal";
-    ingredientItems.innerHTML += '<ul>' + ingredItems.innerHTML + '</ul>';
+    ingredientItems.innerHTML += "<ul>" + ingredItems.innerHTML + "</ul>";
   });
 
   // When the user clicks on <span> (x), close the modal

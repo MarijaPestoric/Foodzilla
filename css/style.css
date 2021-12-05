@@ -322,6 +322,7 @@ section {
 
 #healthy-recipes {
     overflow: auto;
+    height: 50vh;
 }
 
 #section-rigth .healthy-img {
@@ -412,6 +413,12 @@ section {
         gap: 2em;
     }
 
+    #top-rated-recipe {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+        gap: 2em;
+    }
+
     .box-description {
         max-width: 20vw;
         font-size: smaller;
@@ -450,6 +457,12 @@ section {
     }
 
     #recipe-list {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: none;
+        gap: 1em;
+    }
+
+    #top-rated-recipe {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: none;
         gap: 1em;
