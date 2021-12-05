@@ -33,7 +33,7 @@ header .navigation li a {
 }
 
 header .navigation li:hover {
-    border-bottom: 2px #003049 solid;
+    border-bottom: 2px orange solid;
 }
 
 /* mobile header */
