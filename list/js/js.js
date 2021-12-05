@@ -1,8 +1,8 @@
-// const apiKey = "1a6bb5b6f75a4d81a0c9e061ff13e161";
-// const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
-const url = "/Recipes.json";
+// let key = config.SECRET_API_KEY;
+const apiKey = "1d5af0a8f60f4f16ab2fc01744b0155c";
+const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
+// const url = "/Recipes.json";
 async function filterRecipes() {
-  const url = "/Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -84,7 +84,6 @@ async function filterRecipes() {
 filterRecipes();
 
 async function searchRecipe() {
-  // const url = "/Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -206,7 +205,7 @@ function modelWindow() {
     directionsList.innerHTML = dirList.innerHTML;
     servingCount.innerHTML = serCount.textContent + " servings";
     servingKcal.innerHTML = servKcal.textContent + " kcal";
-    ingredientItems.innerHTML += "<ul>" + ingredItems.innerHTML + "</ul>";
+    ingredientItems.innerHTML =  ingredItems.innerHTML;
   });
   span.addEventListener("click", function () {
     modal.style.display = "none";
