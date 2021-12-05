@@ -8,47 +8,73 @@ async function filterRecipes() {
     let data = await res.json();
     let recipeList = document.querySelector(".cat-food-list");
     let empty = document.querySelector(".empty");
+    $(function () {
+      $(".cat").click(function () {
+        let value = $(this).val();
+        data["recipes"].forEach((element) => {
+          if (element[value] === true) {
+            let recipeTitle = document.createElement("strong");
+            let recipeImage = document.createElement("img");
+            let cookingTime = document.createElement("strong");
+            let getPreparation = document.createElement("p");
+            let createBoxImg = document.createElement("div");
+            let createBoxDesc = document.createElement("div");
+            let createDuration = document.createElement("div");
+            let box = document.createElement("div");
+            let details = document.createElement("div");
+            let directionsList = document.createElement("div");
+            let servingCount = document.createElement("p");
+            let servingKcal = document.createElement("p");
+            let ingredientItems = document.createElement("div");
 
-    $(".cat").click(function () {
-      let value = $(this).val();
-      data["recipes"].forEach((element) => {
-        if (element[value] === true) {
-          let recipeTitle = document.createElement("strong");
-          let recipeImage = document.createElement("img");
-          let cookingTime = document.createElement("strong");
-          let getPreparation = document.createElement("p");
-          let createBoxImg = document.createElement("div");
-          let createBoxDesc = document.createElement("div");
-          let createDuration = document.createElement("div");
-          let box = document.createElement("div");
+            box.className = "box";
+            recipeTitle.className = "food-title";
+            recipeImage.className = "img-food";
+            cookingTime.className = "food-duration";
+            getPreparation.className = "preparation";
+            createBoxDesc.className = "box-description";
+            createBoxImg.className = "box-img";
+            createDuration.className = "duration";
+            directionsList.className = "directionsList";
+            servingCount.className = "servingCount";
+            servingKcal.className = "servingKcal";
+            ingredientItems.className = "ingredientItems";
 
-          box.className = "box";
-          recipeTitle.className = "food-title";
-          recipeImage.className = "img-food";
-          cookingTime.className = "food-duration";
-          getPreparation.className = "preparation";
-          createBoxDesc.className = "box-description";
-          createBoxImg.className = "box-img";
-          createDuration.className = "duration";
+            recipeTitle.textContent = element["title"];
+            recipeImage.src = element["image"];
+            getPreparation.innerHTML =
+              element["summary"].substring(0, 400) + "...";
+            cookingTime.innerHTML =
+              '<i class="fas fa-stopwatch"></i> ' +
+              element["readyInMinutes"] +
+              " min";
+            directionsList.innerHTML = element["instructions"];
+            servingCount.innerHTML = element["servings"];
+            servingKcal.innerHTML = element["pricePerServing"];
+            element["extendedIngredients"].forEach((element) => {
+              ingredientItems.innerHTML += `<div class="ingredient-item">
+          <p class="ingredient-name"> ${element["name"]}</p> 
+          <p> ${element["amount"]} ${element["unit"]}</div>`;
+            });
 
-          recipeTitle.textContent = element["title"];
-          recipeImage.src = element["image"];
-          getPreparation.innerHTML =
-            element["summary"].substring(0, 400) + "...";
-          cookingTime.textContent = element["readyInMinutes"] + " min";
+            details.style.display = "none";
 
-          createBoxImg.append(recipeImage);
-          box.append(createBoxImg);
+            details.append(directionsList);
+            details.append(servingCount);
+            details.append(ingredientItems);
+            details.append(servingKcal);
+            createBoxImg.append(recipeImage);
+            createDuration.append(recipeTitle, cookingTime);
+            createBoxDesc.append(createDuration);
+            createBoxDesc.append(getPreparation);
 
-          createDuration.append(recipeTitle, cookingTime);
-          createBoxDesc.append(createDuration);
-          createBoxDesc.append(getPreparation);
-
-          box.append(createBoxDesc);
-
-          recipeList.append(box);
-          empty.style.display = "none";
-        }
+            box.append(createBoxImg);
+            box.append(createBoxDesc);
+            box.append(details);
+            recipeList.append(box);
+            empty.style.display = "none";
+          }
+        });
       });
     });
   } catch (error) {
@@ -79,6 +105,11 @@ async function searchRecipe() {
             let createBoxDesc = document.createElement("div");
             let createDuration = document.createElement("div");
             let box = document.createElement("div");
+            let details = document.createElement("div");
+            let directionsList = document.createElement("div");
+            let servingCount = document.createElement("p");
+            let servingKcal = document.createElement("p");
+            let ingredientItems = document.createElement("div");
 
             box.className = "box";
             recipeTitle.className = "food-title";
@@ -88,12 +119,35 @@ async function searchRecipe() {
             createBoxDesc.className = "box-description";
             createBoxImg.className = "box-img";
             createDuration.className = "duration";
+            directionsList.className = "directionsList";
+            servingCount.className = "servingCount";
+            servingKcal.className = "servingKcal";
+            ingredientItems.className = "ingredientItems";
 
             recipeTitle.textContent = element["title"];
             recipeImage.src = element["image"];
             getPreparation.innerHTML =
               element["summary"].substring(0, 400) + "...";
-            cookingTime.textContent = element["readyInMinutes"] + " min";
+            cookingTime.innerHTML =
+              '<i class="fas fa-stopwatch"></i> ' +
+              element["readyInMinutes"] +
+              " min";
+            directionsList.innerHTML = element["instructions"];
+            servingCount.innerHTML = element["servings"];
+            servingKcal.innerHTML = element["pricePerServing"];
+            element["extendedIngredients"].forEach((element) => {
+              ingredientItems.innerHTML += `<div class="ingredient-item">
+            <p class="ingredient-name"> ${element["name"]}</p> 
+            <p> ${element["amount"]} ${element["unit"]}</div>`;
+            });
+
+            details.style.display = "none";
+
+            details.append(directionsList);
+            details.append(servingCount);
+            details.append(servingKcal);
+            details.append(ingredientItems);
+            box.append(details);
 
             createBoxImg.append(recipeImage);
             box.append(createBoxImg);
@@ -123,3 +177,45 @@ async function searchRecipe() {
 }
 
 searchRecipe();
+
+function modelWindow() {
+  var modal = document.getElementById("myModal");
+  var span = document.getElementsByClassName("close")[0];
+  // var
+  let recipeTitle = document.querySelector(".food-title");
+  let recipeImage = document.querySelector(".food-image");
+  let directionsList = document.querySelector(".directions-list");
+  let cookingTime = document.querySelector(".cooking-time");
+  let servingCount = document.querySelector(".serving-count");
+  let servingKcal = document.querySelector(".serving-kcal");
+  let ingredientItems = document.querySelector(".container__ingredients-items");
+
+  $(document).on("click", ".box", function () {
+    modal.style.display = "block";
+    let foodTitle = this.querySelector(".food-title");
+    let foodImg = this.querySelector(".img-food");
+    let time = this.querySelector(".food-duration");
+    let dirList = this.querySelector(".directionsList");
+    let serCount = this.querySelector(".servingCount");
+    let ingredItems = this.querySelector(".ingredientItems");
+    let servKcal = this.querySelector(".servingKcal");
+
+    recipeTitle.append(foodTitle.textContent);
+    recipeImage.src = foodImg.src;
+    cookingTime.textContent = time.textContent;
+    directionsList.innerHTML = dirList.innerHTML;
+    servingCount.innerHTML = serCount.textContent + " servings";
+    servingKcal.innerHTML = servKcal.textContent + " kcal";
+    ingredientItems.innerHTML += "<ul>" + ingredItems.innerHTML + "</ul>";
+  });
+  span.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+  window.addEventListener("click", function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  });
+}
+
+modelWindow();

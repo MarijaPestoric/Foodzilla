@@ -15,10 +15,9 @@ async function getInfoRecipes() {
       let createBoxDesc = document.createElement("div");
       let createDuration = document.createElement("div");
       let box = document.createElement("div");
+      
       let details = document.createElement("div");
-
       let directionsList = document.createElement("div");
-
       let servingCount = document.createElement("p");
       let servingKcal = document.createElement("p");
       let ingredientItems = document.createElement("div");

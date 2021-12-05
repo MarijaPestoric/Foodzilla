@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/list/css/style.css">
     <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/recipe/css/style.css">
     <title>Home</title>
 </head>
 
@@ -56,6 +57,46 @@
                     <div class="cat-food-list">
                     </div>
                 </div>
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 class="food-title"></h2>
+                        <div class="container">
+                            <div class="container__image">
+                                <img class="food-image" src="" alt="food-image">
+                            </div>
+                            <div class="container__ingredients">
+                                <div class="container__ingredients-heading">
+                                    <img class="ingredients-logo" src="/recipe/images/ingredients.png"
+                                        alt="ingredient-logo" width="40px">
+                                    <h2 class="ingredients-heading"> Ingredients</h2>
+                                </div>
+                                <div class="container__ingredients-items">
+                                </div>
+                            </div>
+                            <div class="container__summary">
+                                <h2 class="summary-heading">Quick info</h2>
+                                <ul class="summary-list">
+                                    <li class="summary-item"><img class="summary-logo"
+                                            src="/recipe/images/back-in-time.png" alt="time" width="30px"><span
+                                            class="cooking-time"></span> </li>
+                                    <li class="summary-item"><img class="summary-logo" src="/recipe/images/user (1).png"
+                                            alt="servings" width="30px"><span class="serving-count"></span> </li>
+                                    <li class="summary-item"><img class="summary-logo"
+                                            src="/recipe/images//calories.png" alt="calories" width="30px"><span
+                                            class="serving-kcal"></span> </li>
+                                </ul>
+                            </div>
+                            <div class="container__directions">
+                                <h2 class="directions-heading">Directions</h2>
+                                <ol class="directions-list">
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -65,24 +106,26 @@
     <footer id="footer">
         <div class="footer-container__section footer-text">
             <img class="footer-logo" src="../images/logowhite.png" alt="">
-            <p class="footer-container__section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    aliquip ex ea commodo consequat.</p>
+            <p class="footer-container__section-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut
+                aliquip ex ea commodo consequat.</p>
         </div>
         <div class="footer-container__section newsletter">
             <h3 class="footer-container__section-title">SUBSCRIBE <em>to</em> OUR NEWSLETTER</h3>
             <form class="footer-container__section-form" action="">
-                <input type="email" placeholder="Enter Your Email Address" class="footer-input"> 
+                <input type="email" placeholder="Enter Your Email Address" class="footer-input">
                 <button class="footer-btn">SUBSCRIBE</button>
             </form>
         </div>
         <div class="footer-container__section menu-items">
-            <h3 class="footer-container__section-title">QUICK NAVIGATION</h3>   
+            <h3 class="footer-container__section-title">QUICK NAVIGATION</h3>
             <ul class="footer__menu">
-                    <li class="footer__menu-item"><a class="footer__menu-link" href="../index.html">Home</a></li>
-                    <li class="footer__menu-item"><a class="footer__menu-link" href="../list/index.html">List</a></li>
-                    <li class="footer__menu-item"><a class="footer__menu-link" href="./about.html">About us</a></li>
-                    <li class="footer__menu-item"><a class="footer__menu-link" href="../contact us/contactus.html">Contact us</a></li>
-                </ul>
+                <li class="footer__menu-item"><a class="footer__menu-link" href="../index.html">Home</a></li>
+                <li class="footer__menu-item"><a class="footer__menu-link" href="../list/index.html">List</a></li>
+                <li class="footer__menu-item"><a class="footer__menu-link" href="./about.html">About us</a></li>
+                <li class="footer__menu-item"><a class="footer__menu-link" href="../contact us/contactus.html">Contact
+                        us</a></li>
+            </ul>
         </div>
         <div class="footer-container__section social-media">
             <h3 class="footer-container__section-title">STAY CONNECTED</h3>
@@ -93,15 +136,16 @@
 
         </div>
     </footer>
-    <script src="js/js.js"></script>
     <!-- fontawesome icons -->
     <script src="https://kit.fontawesome.com/b55e23319b.js" crossorigin="anonymous"></script>
     <!-- jquery-->
-
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- lottie animations -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- js -->
+    <script src="js/js.js"></script>
+    <!-- menu -->
     <script>
         function myFunction() {
             var x = document.getElementById("myLinks");
