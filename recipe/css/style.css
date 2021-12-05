@@ -58,11 +58,12 @@
     align-items: center;
     flex-wrap: wrap;
     overflow: auto;
-    max-height: 16rem;
+    max-height: 12rem;
 }
 
 #myModal .ingredient-item {
     margin: .5rem;
+    width: fit-content;
     border: 1px solid #f77f00;
     border-radius: 10px 23px 20px;
     padding: .75rem;
@@ -135,7 +136,6 @@
             "image image image"
             "summary ingredients ingredients"
             "directions directions directions";
-        font-size: 16px;
     }
     #myModal .food-title {
         font-size: 1.5rem;
@@ -151,13 +151,16 @@
     #myModal .container__ingredients-items {
         justify-content: flex-start;
         flex-direction: row;
-        max-height: 13rem;
+        flex-wrap: wrap;
+        max-height: 12rem;
+        font-size: .8rem;
     }
 
     #myModal .container__summary {
         width: 16rem;
         height: 16rem;
         align-self: center;
+        font-size: 1rem;
     }
 
     #myModal .ingredients-logo {
@@ -167,6 +170,7 @@
     #myModal .container__directions {
         padding: 1rem 2.5rem;
         margin: 4rem 1rem;
+        font-size: 1rem;
     }
 
     #myModal .footer__menu {
@@ -202,10 +206,6 @@
         width: 4rem;
         border-radius: 5rem;
         margin-right: 1rem;
-    }
-
-    #myModal .container__ingredients-items {
-        max-height: 15.5rem;
     }
 
     #myModal .ingredients-heading {
