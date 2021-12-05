@@ -20,7 +20,6 @@
 }
 
 section {
-    /* width: fit-content; */
     min-height: 100vh;
     position: relative;
     justify-content: space-between;
@@ -43,17 +42,17 @@ section {
 .content {
     position: relative;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
-    padding: 0em 3em 0em 3em;
     flex-direction: column;
+    padding: 1rem;
 }
 
 .content .textBox {
     position: relative;
-    max-width: 600px;
-    margin-right: 20px;
+    margin-right: 1rem;
+    margin-bottom: 3rem;
 }
 
 .content .textBox h2 {
@@ -79,6 +78,9 @@ section {
     transition: width 0.5s;
     padding: 0.8rem 1.5rem;
     font-family: 'Poppins', sans-serif;
+    position: relative;
+    text-decoration: none;
+    top: 2rem;
     margin-top: 1rem;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
@@ -103,9 +105,10 @@ section {
 /* Slider Start */
 
 .swiper {
-    width: 100%;
+    max-width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
+
 }
 
 .swiper-slide {
@@ -127,20 +130,23 @@ section {
 .swiper-slide img {
     position: absolute;
     bottom: 0;
+    width: 20rem;
+    margin: 0 auto;
     max-height: 100%;
 }
 
 /* Slider End */
 
 .content .imgBox {
-    width: 300px;
+    max-width: 19rem;
+    max-height: 100%;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
 }
 
 .content .imgBox img {
-    max-width: 400px;
+    width: 300px;
 }
 
 .swipe-text {
@@ -151,7 +157,7 @@ section {
 }
 
 .arrow {
-    width: 5rem;
+    max-width: 5rem;
     top: .8rem;
     margin: .5rem;
     position: absolute;
@@ -163,23 +169,26 @@ section {
 /* main section */
 
 #main-section {
-    background-color: white;
-    padding: 2em;
+    max-width: 100%;
 }
 
 #main-section .container {
+    margin-top: 10rem;
     display: grid;
     gap: 2em;
 }
 
 #main-section img {
     border-radius: 30px;
-    max-width: 261px;
-    border: 1px #003049 solid;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 
 #section-rigth {
+    margin-right: 1rem;
+    margin-left: 1rem;
     text-align: center;
 }
 
@@ -191,7 +200,7 @@ section {
 
 #load-more button {
     padding: 0.8em;
-    background-color: #FCBF49;
+    background-color: #F77F00;
     color: white;
     border-radius: 20px;
     border: 1px #003049 solid;
@@ -272,7 +281,6 @@ section {
     color: var(--blue);
     margin-bottom: 2em;
     line-height: 2em;
-    width: min-content;
 }
 
 #top-rated-recipe {
@@ -380,7 +388,7 @@ section {
 }
 
 
-/* LAPTOPS */
+/* TABLETS */
 @media screen and (min-width: 768px) {
 
     .circle {
@@ -394,6 +402,8 @@ section {
         background: #d52828;
     }
 
+
+
     /* main section */
 
 
@@ -404,7 +414,7 @@ section {
     }
 
     #main-section img {
-        max-width: 161px;
+        max-width: 100%;
     }
 
     #recipe-list {
@@ -425,8 +435,10 @@ section {
     }
 
     .content {
-        flex-direction: row;
+        padding: 2rem;
+        grid-template-columns: 2fr 1fr;
     }
+    
 
 }
 
@@ -450,10 +462,6 @@ section {
         display: grid;
         grid-template-columns: 4fr 1fr;
         gap: 1em;
-    }
-
-    #main-section img {
-        max-width: 261px;
     }
 
     #recipe-list {
@@ -484,7 +492,7 @@ section {
     }
 
     .content {
-        flex-direction: row;
+        grid-template-columns: 3fr 1fr;
     }
 
 }
