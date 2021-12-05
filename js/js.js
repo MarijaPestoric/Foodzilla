@@ -1,7 +1,8 @@
-const apiKey = "1a6bb5b6f75a4d81a0c9e061ff13e161";
-//const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
+// let key = config.SECRET_API_KEY;
+const apiKey = "1d5af0a8f60f4f16ab2fc01744b0155c";
+const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
+// const url = "Recipes.json";
 async function getInfoRecipes() {
-   const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -15,7 +16,7 @@ async function getInfoRecipes() {
       let createBoxDesc = document.createElement("div");
       let createDuration = document.createElement("div");
       let box = document.createElement("div");
-      
+
       let details = document.createElement("div");
       let directionsList = document.createElement("div");
       let servingCount = document.createElement("p");
@@ -81,7 +82,6 @@ getInfoRecipes();
 // top rated
 
 async function topRatedRecipes() {
-   const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -138,7 +138,7 @@ async function topRatedRecipes() {
           <p class="ingredient-name"> ${element["name"]}</p> 
           <p> ${element["amount"]} ${element["unit"]}</div>`;
         });
-  
+
         topRatedcreateBoxImg.append(topRatedRecipeImage);
         topRatedBox.append(topRatedcreateBoxImg);
         topRatedCreateDuration.append(topRatedRecipeTitle);
@@ -161,9 +161,8 @@ async function topRatedRecipes() {
 }
 
 topRatedRecipes();
-
+// healthy
 async function healthyRecipes() {
-   const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -216,7 +215,6 @@ async function healthyRecipes() {
           <p class="ingredient-name"> ${element["name"]}</p> 
           <p> ${element["amount"]} ${element["unit"]}</div>`;
         });
-  
 
         details.style.display = "none";
 
@@ -253,7 +251,6 @@ function loadMore() {
     for (let i = currentItems; i < currentItems + 3; i++) {
       if (elementList[i]) {
         elementList[i].style.display = "block";
-        // elementList1[i].style.display = "block";
       }
     }
     currentItems += 3;
@@ -277,7 +274,6 @@ function loadMore1() {
     for (let i = currentItems; i < currentItems + 3; i++) {
       if (elementList[i]) {
         elementList[i].style.display = "block";
-        // elementList1[i].style.display = "block";
       }
     }
     currentItems += 3;
@@ -297,14 +293,9 @@ async function recipes() {
 }
 
 function modelWindow() {
-  // Get the modal
   var modal = document.getElementById("myModal");
-  // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
-  // When the user clicks on the button, open the modal;
-
   // var
-
   let recipeTitle = document.querySelector(".food-title");
   let recipeImage = document.querySelector(".food-image");
   let directionsList = document.querySelector(".directions-list");
@@ -327,17 +318,13 @@ function modelWindow() {
     recipeImage.src = foodImg.src;
     cookingTime.textContent = time.textContent;
     directionsList.innerHTML = dirList.innerHTML;
-    servingCount.innerHTML = serCount.textContent + ' servings';
+    servingCount.innerHTML = serCount.textContent + " servings";
     servingKcal.innerHTML = servKcal.textContent + " kcal";
     ingredientItems.innerHTML += "<ul>" + ingredItems.innerHTML + "</ul>";
   });
-
-  // When the user clicks on <span> (x), close the modal
   span.addEventListener("click", function () {
     modal.style.display = "none";
   });
-
-  // When the user clicks anywhere outside of the modal, close it
   window.addEventListener("click", function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
