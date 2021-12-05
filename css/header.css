@@ -55,23 +55,22 @@ header .navigation li:hover {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1rem;
     display: block;
+
 }
 
 /* Style the hamburger menu */
 .topnav a.icon {
-    background: #003049;
     display: block;
     position: absolute;
-    border-radius: 30px;
     right: 13px;
     top: 21px;
 }
 
 /* Add a grey background color on mouse-over */
 .topnav a:hover {
-    color: #ddd;
+    color: #f0f0f0;
 }
 
 /* LAPTOPS */
@@ -83,7 +82,7 @@ header .navigation li:hover {
 
     .topnav #myLinks {
         display: flex;
-        width: 120%;
+        width: 100%;
         align-items: center;
         justify-content: flex-end;
     }

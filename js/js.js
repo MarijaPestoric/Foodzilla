@@ -1,7 +1,7 @@
 const apiKey = "1a6bb5b6f75a4d81a0c9e061ff13e161";
-const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
+//const url = `https://api.spoonacular.com/recipes/random?number=30&apiKey=${apiKey}`;
 async function getInfoRecipes() {
-  // const url = "Recipes.json";
+   const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -82,7 +82,7 @@ getInfoRecipes();
 // top rated
 
 async function topRatedRecipes() {
-  // const url = "Recipes.json";
+   const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -134,14 +134,12 @@ async function topRatedRecipes() {
         directionsList.innerHTML = element["instructions"];
         servingCount.innerHTML = element["servings"];
         servingKcal.innerHTML = element["pricePerServing"];
-        element["analyzedInstructions"].forEach((element) => {
-          element["steps"].forEach((element) => {
-            element["ingredients"].forEach((element) => {
-              ingredientItems.innerHTML += `<li>${element["name"]}</li>`;
-            });
-          });
+        element["extendedIngredients"].forEach((element) => {
+          ingredientItems.innerHTML += `<div class="ingredient-item">
+          <p class="ingredient-name"> ${element["name"]}</p> 
+          <p> ${element["amount"]} ${element["unit"]}</div>`;
         });
-
+  
         topRatedcreateBoxImg.append(topRatedRecipeImage);
         topRatedBox.append(topRatedcreateBoxImg);
         topRatedCreateDuration.append(topRatedRecipeTitle);
@@ -166,7 +164,7 @@ async function topRatedRecipes() {
 topRatedRecipes();
 
 async function healthyRecipes() {
-  // const url = "Recipes.json";
+   const url = "Recipes.json";
   try {
     let res = await fetch(url);
     let data = await res.json();
@@ -214,13 +212,12 @@ async function healthyRecipes() {
         directionsList.innerHTML = element["instructions"];
         servingCount.innerHTML = element["servings"];
         servingKcal.innerHTML = element["pricePerServing"];
-        element["analyzedInstructions"].forEach((element) => {
-          element["steps"].forEach((element) => {
-            element["ingredients"].forEach((element) => {
-              ingredientItems.innerHTML += `<li>${element["name"]}</li>`;
-            });
-          });
+        element["extendedIngredients"].forEach((element) => {
+          ingredientItems.innerHTML += `<div class="ingredient-item">
+          <p class="ingredient-name"> ${element["name"]}</p> 
+          <p> ${element["amount"]} ${element["unit"]}</div>`;
         });
+  
 
         details.style.display = "none";
 
@@ -329,10 +326,10 @@ function modelWindow() {
 
     recipeTitle.append(foodTitle.textContent);
     recipeImage.src = foodImg.src;
-    cookingTime.textContent = time.textContent + " min";
+    cookingTime.textContent = time.textContent;
     directionsList.innerHTML = dirList.innerHTML;
-    servingCount.innerHTML = serCount.textContent;
-    servingKcal.innerHTML = servKcal.textContent + " cal";
+    servingCount.innerHTML = serCount.textContent + ' servings';
+    servingKcal.innerHTML = servKcal.textContent + " kcal";
     ingredientItems.innerHTML += "<ul>" + ingredItems.innerHTML + "</ul>";
   });
 
