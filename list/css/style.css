@@ -8,6 +8,10 @@
 
 }
 
+#main {
+    height: fit-content;
+}
+
 #main #section-search {
     display: flex;
 }
@@ -89,6 +93,12 @@
     justify-content: space-between;
 }
 
+.empty lottie-plazer {
+    width: 332px;
+    height: 388px;
+}
+
+
 @media screen and (min-width: 768px) {
     .box-description {
         max-width: 53vw;
@@ -98,5 +108,21 @@
 
     #main #section-search #search {
         width: 30vw;
+    }
+
+    .empty lottie-player {
+        width: 600px;
+        height: 600px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #main .cat-list {
+        overflow: hidden;
+    }
+
+    .empty lottie-player {
+        width: 600px;
+        height: 600px;
     }
 }
